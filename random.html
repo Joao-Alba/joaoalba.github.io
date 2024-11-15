@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clara Page</title>
+  <style>
+    /* Background and body styling */
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: pink;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Heart background */
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://via.placeholder.com/50/ff0066?text=❤');
+      background-size: 50px 50px;
+      background-repeat: repeat;
+      opacity: 0.2;
+      z-index: -1;
+    }
+
+    /* Centered container for content */
+    .container {
+      text-align: center;
+    }
+
+    /* Photo styling */
+    .photo {
+      width: 200px;
+      height: 200px;
+      background-color: white;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      background-image: url('https://via.placeholder.com/200');
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Message styling */
+    .message {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    /* Button styling */
+    .buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Button specific styles */
+    #btnSim {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #btnNao {
+      background-color: #FF5733;
+      color: white;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+  <div class="container">
+    <div class="photo"></div>
+    <div class="message">
+      Clara amanhã a gente vai se ver e vai dar tudo certo e vc vai mexer no meu cabelo né?
+    </div>
+    <div class="buttons">
+      <button id="btnSim">Sim</button>
+      <button id="btnNao">Não</button>
+    </div>
+  </div>
+
+  <script>
+    // Select the buttons
+    const btnSim = document.getElementById('btnSim');
+    const btnNao = document.getElementById('btnNao');
+
+    // Event listener for 'Sim' button
+    btnSim.addEventListener('click', function() {
+      alert("Let's go então we are so back");
+    });
+
+    // Event listener for 'Não' button to randomly move it
+    btnNao.addEventListener('click', function() {
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+      const buttonWidth = btnNao.offsetWidth;
+      const buttonHeight = btnNao.offsetHeight;
+
+      // Generate random position within a range near the center
+      const offsetX = Math.floor(Math.random() * 100 - 50); // Range between -50 to 50
+      const offsetY = Math.floor(Math.random() * 100 - 50); // Range between -50 to 50
+
+      // Apply the random offset position
+      btnNao.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+    });
+  </script>
+</body>
+</html>
